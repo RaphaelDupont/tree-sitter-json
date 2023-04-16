@@ -1,0 +1,23 @@
+======================
+JSON string value
+======================
+
+
+
+{
+
+"name" : {
+    "Thisisastring"
+    }
+
+}
+
+---
+
+(source_file
+    (main_obj
+        (key_pair_list
+            (key_pair
+                (name)
+                (value 
+                    (string))))))
