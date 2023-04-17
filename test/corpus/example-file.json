@@ -15,9 +15,8 @@ JSON first test
 ---
 
 (source_file
-    (main_obj
-        (key_pair_list
-            (key_pair
-                (name)
-                (value 
-                    (number))))))
+    (key_pair_list
+        (key_pair
+            (name)
+            (value 
+                (number)))))

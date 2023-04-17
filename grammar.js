@@ -1,9 +1,7 @@
 module.exports = grammar({
     name: 'JSON',
     rules: {
-        source_file: $ => $.main_obj,
-
-        main_obj: $ => seq(
+        source_file: $ => seq(
             '{',
             $.key_pair_list,
             '}',

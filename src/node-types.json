@@ -34,21 +34,6 @@
     }
   },
   {
-    "type": "main_obj",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "key_pair_list",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -57,7 +42,7 @@
       "required": true,
       "types": [
         {
-          "type": "main_obj",
+          "type": "key_pair_list",
           "named": true
         }
       ]

@@ -6,9 +6,9 @@
 #endif
 
 #define LANGUAGE_VERSION 14
-#define STATE_COUNT 17
+#define STATE_COUNT 16
 #define LARGE_STATE_COUNT 2
-#define SYMBOL_COUNT 14
+#define SYMBOL_COUNT 13
 #define ALIAS_COUNT 0
 #define TOKEN_COUNT 8
 #define EXTERNAL_TOKEN_COUNT 0
@@ -25,11 +25,10 @@ enum {
   sym_number = 6,
   sym_string = 7,
   sym_source_file = 8,
-  sym_main_obj = 9,
-  sym_key_pair_list = 10,
-  sym_key_pair = 11,
-  sym_value = 12,
-  aux_sym_key_pair_list_repeat1 = 13,
+  sym_key_pair_list = 9,
+  sym_key_pair = 10,
+  sym_value = 11,
+  aux_sym_key_pair_list_repeat1 = 12,
 };
 
 static const char * const ts_symbol_names[] = {
@@ -42,7 +41,6 @@ static const char * const ts_symbol_names[] = {
   [sym_number] = "number",
   [sym_string] = "string",
   [sym_source_file] = "source_file",
-  [sym_main_obj] = "main_obj",
   [sym_key_pair_list] = "key_pair_list",
   [sym_key_pair] = "key_pair",
   [sym_value] = "value",
@@ -59,7 +57,6 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_number] = sym_number,
   [sym_string] = sym_string,
   [sym_source_file] = sym_source_file,
-  [sym_main_obj] = sym_main_obj,
   [sym_key_pair_list] = sym_key_pair_list,
   [sym_key_pair] = sym_key_pair,
   [sym_value] = sym_value,
@@ -100,10 +97,6 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .named = true,
   },
   [sym_source_file] = {
-    .visible = true,
-    .named = true,
-  },
-  [sym_main_obj] = {
     .visible = true,
     .named = true,
   },
@@ -150,7 +143,6 @@ static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
   [13] = 13,
   [14] = 14,
   [15] = 15,
-  [16] = 16,
 };
 
 static bool ts_lex(TSLexer *lexer, TSStateId state) {
@@ -235,7 +227,6 @@ static const TSLexMode ts_lex_modes[STATE_COUNT] = {
   [13] = {.lex_state = 0},
   [14] = {.lex_state = 0},
   [15] = {.lex_state = 0},
-  [16] = {.lex_state = 0},
 };
 
 static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
@@ -250,7 +241,6 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [1] = {
     [sym_source_file] = STATE(7),
-    [sym_main_obj] = STATE(8),
     [anon_sym_LBRACE] = ACTIONS(3),
   },
 };
@@ -259,7 +249,7 @@ static const uint16_t ts_small_parse_table[] = {
   [0] = 3,
     ACTIONS(5), 1,
       anon_sym_DQUOTE,
-    STATE(10), 1,
+    STATE(9), 1,
       sym_key_pair_list,
     STATE(3), 2,
       sym_key_pair,
@@ -281,7 +271,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_key_pair,
       aux_sym_key_pair_list_repeat1,
   [33] = 2,
-    STATE(16), 1,
+    STATE(15), 1,
       sym_value,
     ACTIONS(14), 2,
       sym_number,
@@ -295,30 +285,27 @@ static const uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
   [50] = 1,
     ACTIONS(20), 1,
-      ts_builtin_sym_end,
+      sym_name,
   [54] = 1,
     ACTIONS(22), 1,
-      sym_name,
+      anon_sym_RBRACE,
   [58] = 1,
     ACTIONS(24), 1,
-      anon_sym_RBRACE,
+      anon_sym_DQUOTE,
   [62] = 1,
     ACTIONS(26), 1,
-      anon_sym_DQUOTE,
+      ts_builtin_sym_end,
   [66] = 1,
     ACTIONS(28), 1,
-      ts_builtin_sym_end,
+      anon_sym_COLON,
   [70] = 1,
     ACTIONS(30), 1,
-      anon_sym_COLON,
+      anon_sym_LBRACE,
   [74] = 1,
     ACTIONS(32), 1,
-      anon_sym_LBRACE,
+      anon_sym_RBRACE,
   [78] = 1,
     ACTIONS(34), 1,
-      anon_sym_RBRACE,
-  [82] = 1,
-    ACTIONS(36), 1,
       anon_sym_RBRACE,
 };
 
@@ -337,29 +324,27 @@ static const uint32_t ts_small_parse_table_map[] = {
   [SMALL_STATE(13)] = 70,
   [SMALL_STATE(14)] = 74,
   [SMALL_STATE(15)] = 78,
-  [SMALL_STATE(16)] = 82,
 };
 
 static const TSParseActionEntry ts_parse_actions[] = {
   [0] = {.entry = {.count = 0, .reusable = false}},
   [1] = {.entry = {.count = 1, .reusable = false}}, RECOVER(),
   [3] = {.entry = {.count = 1, .reusable = true}}, SHIFT(2),
-  [5] = {.entry = {.count = 1, .reusable = true}}, SHIFT(9),
+  [5] = {.entry = {.count = 1, .reusable = true}}, SHIFT(8),
   [7] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_key_pair_list, 1),
   [9] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_key_pair_list_repeat1, 2),
-  [11] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_key_pair_list_repeat1, 2), SHIFT_REPEAT(9),
-  [14] = {.entry = {.count = 1, .reusable = true}}, SHIFT(15),
+  [11] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_key_pair_list_repeat1, 2), SHIFT_REPEAT(8),
+  [14] = {.entry = {.count = 1, .reusable = true}}, SHIFT(14),
   [16] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_key_pair, 7),
   [18] = {.entry = {.count = 1, .reusable = true}},  ACCEPT_INPUT(),
-  [20] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_source_file, 1),
+  [20] = {.entry = {.count = 1, .reusable = true}}, SHIFT(10),
   [22] = {.entry = {.count = 1, .reusable = true}}, SHIFT(11),
   [24] = {.entry = {.count = 1, .reusable = true}}, SHIFT(12),
-  [26] = {.entry = {.count = 1, .reusable = true}}, SHIFT(13),
-  [28] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_main_obj, 3),
-  [30] = {.entry = {.count = 1, .reusable = true}}, SHIFT(14),
-  [32] = {.entry = {.count = 1, .reusable = true}}, SHIFT(5),
-  [34] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_value, 1),
-  [36] = {.entry = {.count = 1, .reusable = true}}, SHIFT(6),
+  [26] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_source_file, 3),
+  [28] = {.entry = {.count = 1, .reusable = true}}, SHIFT(13),
+  [30] = {.entry = {.count = 1, .reusable = true}}, SHIFT(5),
+  [32] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_value, 1),
+  [34] = {.entry = {.count = 1, .reusable = true}}, SHIFT(6),
 };
 
 #ifdef __cplusplus

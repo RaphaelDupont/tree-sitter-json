@@ -15,9 +15,8 @@ JSON string value
 ---
 
 (source_file
-    (main_obj
-        (key_pair_list
-            (key_pair
-                (name)
-                (value 
-                    (string))))))
+    (key_pair_list
+        (key_pair
+            (name)
+            (value 
+                (string)))))

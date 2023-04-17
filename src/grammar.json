@@ -2,10 +2,6 @@
   "name": "JSON",
   "rules": {
     "source_file": {
-      "type": "SYMBOL",
-      "name": "main_obj"
-    },
-    "main_obj": {
       "type": "SEQ",
       "members": [
         {
