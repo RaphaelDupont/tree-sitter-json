@@ -1,0 +1,49 @@
+======================
+JSON list value
+======================
+
+
+
+{
+
+"obj_list" : [
+        "obj_one": {
+            "a" : 1,
+            "color" : "blue"
+        }
+    ]
+
+}
+
+---
+
+(source_file
+    (key_pair_list
+        (key_pair
+            (string)
+            (value
+                (value
+                    (key_pair
+                        (string)
+                        (value
+                            (value
+                                (key_pair
+                                    (string)
+                                    (value
+                                        (number))
+                                )
+                            )
+                            (value
+                                (key_pair
+                                    (string)
+                                    (value
+                                        (string))
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
