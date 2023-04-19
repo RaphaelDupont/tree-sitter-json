@@ -1,0 +1,28 @@
+======================
+JSON list value
+======================
+
+
+
+{
+
+"name" : {
+     [ 1 ]
+    }
+
+}
+
+---
+
+(source_file
+    (key_pair_list
+        (key_pair
+            (name)
+            (value
+                (value 
+                    (number)
+                )
+            )
+        )
+    )
+)

@@ -23,6 +23,17 @@ module.exports = grammar({
         value: $ => choice (
             $.number,
             $.string,
+            seq(
+                '[',
+                repeat(
+                    seq(
+                        $.value,
+                        ','
+                    ),
+                ),
+                $.value,
+                ']',
+                ),
         ),
 
         name: $ => /[a-z]+/,
