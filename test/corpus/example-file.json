@@ -17,7 +17,34 @@ JSON first test
 (source_file
     (key_pair_list
         (key_pair
-            (name)
+            (string)
+            (value 
+                (value
+                    (number)
+                )
+            )
+        )
+    )
+)
+
+
+======================
+JSON without {}
+======================
+
+
+
+{
+
+"name" : 1
+}
+
+---
+
+(source_file
+    (key_pair_list
+        (key_pair
+            (string)
             (value 
                 (number)
             )

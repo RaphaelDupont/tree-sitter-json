@@ -10,17 +10,14 @@ module.exports = grammar({
         key_pair_list:  $ => repeat1($.key_pair),
 
         key_pair: $ => seq(
-            '"',
-            $.name,
-            '"',
+            $.string,
             ':',
-            '{',
             $.value,
-            '}',
         ),
 
 
         value: $ => choice (
+            $.key_pair,
             $.number,
             $.string,
             seq(
@@ -33,12 +30,22 @@ module.exports = grammar({
                 ),
                 $.value,
                 ']',
+            ),
+            seq(
+                '{',
+                repeat(
+                    seq(
+                        $.value,
+                        ','
+                    ),
                 ),
+                $.value,
+                '}',
+            ),
         ),
 
-        name: $ => /[a-z]+/,
         number: $ => /\d+/,
-        string: $ => /"[a-zA-Z]+"/,
+        string: $ => /"[a-zA-Z_]+"/,
 
     },
 

@@ -6,10 +6,8 @@ JSON list value
 
 {
 
-"name" : {
+"name" :
      [ 1 ]
-    }
-
 }
 
 ---
@@ -17,7 +15,7 @@ JSON list value
 (source_file
     (key_pair_list
         (key_pair
-            (name)
+            (string)
             (value
                 (value 
                     (number)

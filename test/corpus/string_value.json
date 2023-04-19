@@ -6,9 +6,8 @@ JSON string value
 
 {
 
-"name" : {
+"name" :
     "Thisisastring"
-    }
 
 }
 
@@ -17,7 +16,7 @@ JSON string value
 (source_file
     (key_pair_list
         (key_pair
-            (name)
+            (string)
             (value 
                 (string)
             )

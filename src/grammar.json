@@ -29,38 +29,26 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "\""
-        },
-        {
           "type": "SYMBOL",
-          "name": "name"
-        },
-        {
-          "type": "STRING",
-          "value": "\""
+          "name": "string"
         },
         {
           "type": "STRING",
           "value": ":"
         },
         {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
           "type": "SYMBOL",
           "name": "value"
-        },
-        {
-          "type": "STRING",
-          "value": "}"
         }
       ]
     },
     "value": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "key_pair"
+        },
         {
           "type": "SYMBOL",
           "name": "number"
@@ -101,12 +89,41 @@
               "value": "]"
             }
           ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "{"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "value"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  }
+                ]
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "value"
+            },
+            {
+              "type": "STRING",
+              "value": "}"
+            }
+          ]
         }
       ]
-    },
-    "name": {
-      "type": "PATTERN",
-      "value": "[a-z]+"
     },
     "number": {
       "type": "PATTERN",
@@ -114,7 +131,7 @@
     },
     "string": {
       "type": "PATTERN",
-      "value": "\"[a-zA-Z]+\""
+      "value": "\"[a-zA-Z_]+\""
     }
   },
   "extras": [
