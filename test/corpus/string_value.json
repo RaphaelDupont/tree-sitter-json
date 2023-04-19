@@ -19,4 +19,8 @@ JSON string value
         (key_pair
             (name)
             (value 
-                (string)))))
+                (string)
+            )
+        )
+    )
+)
