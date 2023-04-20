@@ -22,22 +22,26 @@ JSON list value
         (key_pair
             (string)
             (value
-                (value
-                    (key_pair
-                        (string)
-                        (value
+                (array
+                    (value
+                        (key_pair
+                            (string)
                             (value
-                                (key_pair
-                                    (string)
+                                (object
                                     (value
-                                        (number))
-                                )
-                            )
-                            (value
-                                (key_pair
-                                    (string)
+                                        (key_pair
+                                            (string)
+                                            (value
+                                                (number))
+                                        )
+                                    )
                                     (value
-                                        (string))
+                                        (key_pair
+                                            (string)
+                                            (value
+                                                (string))
+                                        )
+                                    )
                                 )
                             )
                         )

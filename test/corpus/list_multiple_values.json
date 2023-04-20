@@ -1,5 +1,5 @@
 ======================
-JSON list value
+JSON list muktiple values
 ======================
 
 
@@ -17,11 +17,13 @@ JSON list value
         (key_pair
             (string)
             (value
-                (value
-                    (number)
-                )
-                (value 
-                    (number)
+                (array
+                    (value
+                        (number)
+                    )
+                    (value 
+                        (number)
+                    )
                 )
             )
         )

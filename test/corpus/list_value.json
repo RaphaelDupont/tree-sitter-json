@@ -17,8 +17,10 @@ JSON list value
         (key_pair
             (string)
             (value
-                (value 
-                    (number)
+                (array
+                    (value 
+                        (number)
+                    )
                 )
             )
         )

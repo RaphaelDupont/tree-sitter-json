@@ -1,5 +1,20 @@
 [
   {
+    "type": "array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "key_pair",
     "named": true,
     "fields": {},
@@ -34,6 +49,21 @@
     }
   },
   {
+    "type": "object",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -53,9 +83,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "array",
+          "named": true
+        },
         {
           "type": "key_pair",
           "named": true
@@ -65,11 +99,11 @@
           "named": true
         },
         {
-          "type": "string",
+          "type": "object",
           "named": true
         },
         {
-          "type": "value",
+          "type": "string",
           "named": true
         }
       ]

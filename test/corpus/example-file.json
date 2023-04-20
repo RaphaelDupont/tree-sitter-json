@@ -19,8 +19,10 @@ JSON first test
         (key_pair
             (string)
             (value 
-                (value
-                    (number)
+                (object
+                    (value
+                        (number)
+                    )
                 )
             )
         )

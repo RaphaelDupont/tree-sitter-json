@@ -20,28 +20,32 @@ module.exports = grammar({
             $.key_pair,
             $.number,
             $.string,
-            seq(
-                '[',
-                repeat(
-                    seq(
-                        $.value,
-                        ','
-                    ),
+            $.array,
+            $.object,
+        ),
+
+        array: $ => seq(
+            '[',
+            repeat(
+                seq(
+                    $.value,
+                    ','
                 ),
-                $.value,
-                ']',
             ),
-            seq(
-                '{',
-                repeat(
-                    seq(
-                        $.value,
-                        ','
-                    ),
+            $.value,
+            ']',
+        ),
+
+        object: $ => seq(
+            '{',
+            repeat(
+                seq(
+                    $.value,
+                    ','
                 ),
-                $.value,
-                '}',
             ),
+            $.value,
+            '}',
         ),
 
         number: $ => /\d+/,
