@@ -29,3 +29,112 @@ JSON list muktiple values
         )
     )
 )
+
+======================
+JSON multiple key pairs
+======================
+
+{
+    "Element1" :
+    [
+        {
+            "a" : 1,
+            "b" : 1
+        }
+    ],
+    "Element2" :
+    [
+        {
+
+            "c" : 1,
+            "d" : "d"
+        },
+        {
+            "e" : "z",
+            "f" : "a"
+        }
+    ]
+
+}
+
+---
+
+(source_file
+    (key_pair_list
+        (key_pair
+            (string)
+            (value
+                (array
+                    (value
+                        (object
+                            (value
+                                (key_pair
+                                    (string)
+                                    (value
+                                        (number)
+                                    )
+                                )
+                            )
+                            (value
+                                (key_pair
+                                    (string)
+                                    (value
+                                        (number)
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
+        (key_pair
+            (string)
+            (value
+                (array
+                    (value
+                        (object
+                            (value
+                                (key_pair
+                                    (string)
+                                    (value
+                                        (number)
+                                    )
+                                )
+                            )
+                            (value
+                                (key_pair
+                                    (string)
+                                    (value
+                                        (string)
+                                    )
+                                )
+                            )
+                        )
+                    )
+                    (value
+                        (object
+                            (value
+                                (key_pair
+                                    (string)
+                                    (value
+                                        (string)
+                                    )
+                                )
+                            )
+                            (value
+                                (key_pair
+                                    (string)
+                                    (value
+                                        (string)
+                                    )
+                                )
+                            )
+                        )
+                    )
+
+                )
+            )
+        )
+    )
+)

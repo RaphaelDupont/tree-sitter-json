@@ -7,7 +7,15 @@ module.exports = grammar({
             '}',
         ),
 
-        key_pair_list:  $ => repeat1($.key_pair),
+        key_pair_list:  $ => seq (
+            repeat (
+                seq (
+                    $.key_pair,
+                    ',',
+                ),
+            ),
+            $.key_pair,
+        ),
 
         key_pair: $ => seq(
             $.string,
@@ -49,7 +57,7 @@ module.exports = grammar({
         ),
 
         number: $ => /\d+/,
-        string: $ => /"[a-zA-Z_]+"/,
+        string: $ => /"[a-zA-Z_0-9]+"/,
 
     },
 
