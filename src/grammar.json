@@ -19,11 +19,29 @@
       ]
     },
     "key_pair_list": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "SYMBOL",
-        "name": "key_pair"
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "key_pair"
+              },
+              {
+                "type": "STRING",
+                "value": ","
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "key_pair"
+        }
+      ]
     },
     "key_pair": {
       "type": "SEQ",
@@ -139,7 +157,7 @@
     },
     "string": {
       "type": "PATTERN",
-      "value": "\"[a-zA-Z_]+\""
+      "value": "\"[a-zA-Z_0-9]+\""
     }
   },
   "extras": [
